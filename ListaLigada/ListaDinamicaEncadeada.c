@@ -60,7 +60,7 @@ void limpa_lista(no *lista){
 
 no *remove_no(int valor, no *lista){
 	no *aux, *busca, *retorno;
-	aux = novo_no();
+	aux = cria_no();
 	busca = lista->proximo;
 	
 	while(busca != NULL && busca->valor != valor){
@@ -78,8 +78,6 @@ no *remove_no(int valor, no *lista){
 	}
 
 	return retorno;
-	
-
 }
 
 
