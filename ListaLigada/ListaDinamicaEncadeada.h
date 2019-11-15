@@ -6,9 +6,13 @@
 typedef struct lista_no no;
 
 no *cria_no();
+no *remove_no(int valor, no *lista);
+no *ultimo_no(no *n);
+
 void exibe_lista(no *lista);
 void adiciona_no(int valor, no *lista);
 void limpa_lista(no *lista);
-no *remove_no(int valor, no *lista);
+
+int contem_valor(int valor, no *lista);
 
 #endif
