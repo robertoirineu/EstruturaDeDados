@@ -41,7 +41,9 @@ void en_queue(int valor, fila* f){
 		f->ultimo = 0;
 		
 
-	}else if(f->ultimo++ == f->primeiro){
+	}
+	
+	if(f->ultimo++ == f->primeiro){
 		printf("\nFila cheia");
 		adicionar = 0;
 
