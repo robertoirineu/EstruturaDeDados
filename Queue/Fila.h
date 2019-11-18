@@ -1,5 +1,7 @@
 #ifndef QUEUE
 #define QUEUE
+#define EXIT_SUCCESS 0
+#define VERSION printf("\n\nVersao do sistema 1.0.0\n")
 
 typedef struct queue fila;
 
