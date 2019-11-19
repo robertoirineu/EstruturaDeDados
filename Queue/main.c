@@ -1,23 +1,25 @@
 #include "Fila.c"
+#include <string.h>
 
 int main(){
 	fila *q = inicia_fila(10);
+	int i;
 
-	printf("%i\n",fila_cheia(q));
+	for(i = 0; i < 5; i++){
+		en_queue(i, q);
+	} 
 
-	int i = 0;
-	int j = 1;
-	if(i){
-		printf("\nI == Ligado");
-	}else{
-		printf("\nI == Desligado");
-	}
+	ver_fila(q);
 
-	if(j){
-		printf("\nj == Ligado");
-	}else{
-		printf("\nJ == Desligado");
-	}
+	de_queue(q);
+
+	printf("\n");
+	ver_fila(q);
+
+	en_queue(15, q);
+
+	printf("\n");
+	ver_fila(q);
 
 	VERSION;
 	return EXIT_SUCCESS;
