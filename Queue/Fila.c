@@ -57,8 +57,8 @@ int fila_cheia(fila *f){
 */
 int de_queue(fila* f){
 	if(fila_vazia(f)){
-		printf("Fila vazia");
-		assert(fila_vazia(f));	
+		printf("\nFila vazia\n");
+		assert(!fila_vazia(f));	
 	}
 
 	int valor = f->que[f->primeiro];
@@ -67,7 +67,7 @@ int de_queue(fila* f){
 	}else{
 		f->primeiro++;
 	}
-	
+
 	return valor;
 }
 
@@ -93,7 +93,7 @@ void en_queue(int valor, fila* f){
 	}
 	
 	if((++ver) == f->primeiro){
-		printf("\n|Fila cheia|\n");
+		printf("\nFila cheia\n");
 		adicionar = 0;
 
 	}
@@ -112,6 +112,11 @@ void en_queue(int valor, fila* f){
 void ver_fila(fila *f){
 	int interator;
 	
+	if(fila_vazia(f)){
+		printf("\nFila vazia\n");
+		assert(!fila_vazia(f));	
+	}
+
 	if(f->primeiro > f->ultimo){
 		for(interator = f->primeiro; interator < f->capacidade; interator++){
 			printf("%i ",f->que[interator]);
