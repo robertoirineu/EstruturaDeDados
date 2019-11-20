@@ -1,7 +1,9 @@
 #include "Pilha.c"
-#include <string.h>
+
 
 int main(){
+	setlocale(LC_ALL, "Portuguese");
+
 	int verificacao;
 	int valor;
 	int tamanho_pilha;
@@ -24,7 +26,7 @@ int main(){
 			if(tamanho_pilha > 0){
 				p = cria_pilha(tamanho_pilha);
 			}else{
-				printf("||Tamanho da pilha invalido\n");
+				printf("||Tamanho da pilha inválido\n");
 			}
 		}while(tamanho_pilha <= 0);
 
@@ -32,7 +34,7 @@ int main(){
 
 		do{
 			printf("\n===========================================");
-			printf("\n||Pilha inicializada, escolha uma opcao. ||");
+			printf("\n||Pilha inicializada, escolha uma opção. ||");
 			printf("\n||1 -> Empilhar.                         ||");
 			printf("\n||2 -> Desenpilhar.                      ||");
 			printf("\n||3 -> Exibir pilha.                     ||");
@@ -43,7 +45,7 @@ int main(){
 
 			if(verifica_empilha_desempilha == 1){
 				if(pilha_cheia(p)){
-					printf("||Pilha cheia, nao e possivel empilhar.\n");					
+					printf("||Pilha cheia, nao e possível empilhar.\n");					
 					
 				}else{
 					printf("||Digite o valor a ser empilhado: ");
@@ -56,7 +58,7 @@ int main(){
 				
 			if(verifica_empilha_desempilha == 2){
 				if(pilha_vazia(p)){
-					printf("||Pilha vazia, nao e possivel desempilhar.\n");					
+					printf("||Pilha vazia, não é possível desempilhar.\n");					
 					
 				}else{
 					int pego = to_pop(p);
@@ -67,7 +69,7 @@ int main(){
 			if(verifica_empilha_desempilha == 3){
 				printf("||Pilha:\n");
 				if(pilha_vazia(p)){
-					printf("||A pilha esta vazia.\n");
+					printf("||A pilha está vazia.\n");
 				}else{
 					exibir_pilha(p);
 				}

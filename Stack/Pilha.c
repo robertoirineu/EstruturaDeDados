@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <locale.h>
 
 /**
 *[Fila] estrutura de dados cuja a principal caracteristica e LIFO
@@ -62,9 +63,9 @@ int tamanho_pilha(pilha *p){
 *@Return [int] retorna o elemento do topo da pilha.
 */
 int to_pop(pilha *p){
-	
+	setlocale(LC_ALL, "Portuguese");
 	if(pilha_vazia(p)){
-		printf("\nPilha vazia, remocao nao possivel.\n");
+		printf("\nPilha vazia, remocao não possível.\n");
 		assert(!pilha_vazia(p));
 	}
 
@@ -78,9 +79,9 @@ int to_pop(pilha *p){
 *@Return [void].
 */
 void to_push(int valor, pilha *p){
-	
+	setlocale(LC_ALL, "Portuguese");
 	if(pilha_cheia(p)){
-		printf("\nPilha cheia, adicao nao possivel.\n");
+		printf("\nPilha cheia, adição não possível.\n");
 		assert(!pilha_cheia(p));
 	}
 
