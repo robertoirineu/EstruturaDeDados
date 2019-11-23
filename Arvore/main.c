@@ -2,7 +2,7 @@
 
 int main(){
 	setlocale(LC_ALL,"Portuguese");
-	no *raiz;
+	no *raiz = NULL;
 	int resp_ini;
 	int valor;
 	int resp_opc;
@@ -27,15 +27,47 @@ int main(){
 			printf("\n||? -> Outro valor para sair.  ||");
 			printf("\n================================");
 			printf("\n||-> ");
-			scanf("%i", resp_opc);
+			scanf("%i", &resp_opc);
 
 			if(resp_opc == 1){
+				printf("||Digite o valor a ser adicionado: ");
+				scanf("%i", &valor);
 
-				
-				adicionar_no(int valor, no *arvore);
+				adicionar_valor(valor, raiz);
+				printf("\n||Valor adicionado com sucesso!!!");
 			}
-			
+
+			if(resp_opc == 2){
+				if(raiz == NULL){
+					printf("||Árvore está vazia. Remoção não realizada.");
+
+				}else{
+					no *n = NULL;
+
+					printf("\n||Digite o valor a ser removido: ");
+					scanf("%i", &valor);
+					n = remover_valor(valor, raiz);					
+
+					if(n == NULL){
+						printf("\n||Valor não encontrado.");
+					}else{
+						printf("\n||Valor %i removido", n->valor);
+					}
+				}
+				
+			}
+
+			if(resp_opc == 3){
+				if(raiz == NULL){
+					printf("||Árvore está vazia.");
+
+				}else{
+					exibe_arvore(raiz);
+				}				
+			}
 	
+			printf("\n\n");
+
 		}while(resp_opc == 1 || resp_opc == 2 || resp_opc == 3);
 	}
 	
