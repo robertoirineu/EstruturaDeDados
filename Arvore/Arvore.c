@@ -24,7 +24,7 @@ no *criar_no(){
 
 	no *n = (no *)malloc(sizeof(no *));
 	
-	if(n != NULL){
+	if(n == NULL){
 		printf("Não foi possível criar nó");
 		return NULL;
 	}
@@ -44,7 +44,7 @@ no *criar_no(){
 void exibe_arvore(no *n){
 	if(n != NULL){
 		exibe_arvore(n->e);
-		printf("%i ", n->valor);
+		printf(" %i", n->valor);
 		exibe_arvore(n->d);
 	}
 }
@@ -55,29 +55,16 @@ void exibe_arvore(no *n){
 *@Parameter [int valor] elemento util que será adicionado na árvore.
 *@Return [empty] 
 */
-void adicionar_valor(int valor, no *arvore){
+no *adicionar_valor(int valor, no *arvore){
 	if(arvore == NULL){
 		arvore = criar_no();
 		arvore->valor = valor;
+		return arvore;
 
-	}else if(arvore->pai == NULL){
-		if(arvore->valor >= valor){
-			no *n = criar_no();
-
-			n->pai = arvore;
-			n->valor = valor;
-			arvore->e = n;
-		}else{
-			no *n = criar_no();
-
-			n->pai = arvore;
-			n->valor = valor;
-			arvore->d = n;
-		}
 	}else{
 		if(arvore->valor >= valor){
 			if(arvore->e != NULL){
-				adicionar_valor(valor, arvore->e);
+				return adicionar_valor(valor, arvore->e);
 			}else{
 				no *n = criar_no();
 
@@ -85,10 +72,12 @@ void adicionar_valor(int valor, no *arvore){
 				n->valor = valor;
 				arvore->e = n;
 
+				return arvore;
+
 			}
 		}else{
 			if(arvore->d != NULL){
-				adicionar_valor(valor, arvore->d);
+				return adicionar_valor(valor, arvore->d);
 			}else{
 				no *n = criar_no();
 
@@ -96,6 +85,7 @@ void adicionar_valor(int valor, no *arvore){
 				n->valor = valor;
 				arvore->d = n;
 
+				return arvore;
 			}
 		}
 	}
@@ -120,8 +110,9 @@ void limpar_arvore(no *arvore){
 }
 
 /**
-*@Assing [void limpar_arvore(no *arvore)]
-*@Parameter [no *arvore] elemento que será removido.
+*@Assing [void re_arranjo(no *old, no *target)]
+*@Parameter [no *target] elemento onde será adicionado os elementos para rearranjo.
+*@Parameter [no *old] elemento que será adicionado.
 *@Return [empty].
 */
 void re_arranjo(no *old, no *target){

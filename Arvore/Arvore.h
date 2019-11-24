@@ -9,7 +9,7 @@ no *criar_no();
 no *remover_valor(int valor, no *tree);
 
 void limpar_arvore(no *arvore);
-void adicionar_valor(int valor, no *arvore);
+no *adicionar_valor(int valor, no *arvore);
 void exibe_arvore(no *n);
 void re_arranjo(no *old, no *target);
 

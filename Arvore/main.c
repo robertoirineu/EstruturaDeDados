@@ -32,9 +32,8 @@ int main(){
 			if(resp_opc == 1){
 				printf("||Digite o valor a ser adicionado: ");
 				scanf("%i", &valor);
-
-				adicionar_valor(valor, raiz);
-				printf("\n||Valor adicionado com sucesso!!!");
+				raiz = adicionar_valor(valor, raiz);
+				printf("||Valor %i adicionado com sucesso!!!", valor);
 			}
 
 			if(resp_opc == 2){
@@ -44,12 +43,12 @@ int main(){
 				}else{
 					no *n = NULL;
 
-					printf("\n||Digite o valor a ser removido: ");
+					printf("||Digite o valor a ser removido: ");
 					scanf("%i", &valor);
 					n = remover_valor(valor, raiz);					
 
 					if(n == NULL){
-						printf("\n||Valor não encontrado.");
+						printf("||Valor não encontrado.");
 					}else{
 						printf("\n||Valor %i removido", n->valor);
 					}
